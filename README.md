@@ -8,7 +8,10 @@ clone the repo and:
 
 docker build -t mssqlclient:latest . 
 
+## Dockerhub
+you can pull the pre-built image from dokcer hub
 
+docker pull malkazwini/mssql_docker
 
  
 ## Running the container
