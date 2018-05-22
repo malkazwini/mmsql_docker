@@ -50,7 +50,7 @@ do_help(){
 
 
 drop_database(){
-    /opt/mssql-tools/bin/sqlcmd -E -S tcp:"${DbHHost}","${DbPort}" -U "${DbUser}" -P "${DbPassword}" -Q "DROP DATABASE ${DbName}"
+    /opt/mssql-tools/bin/sqlcmd -E -S tcp:"${DbHost}","${DbPort}" -U "${DbUser}" -P "${DbPassword}" -Q "DROP DATABASE ${DbName}"
 }
 alterDb(){
     echo "Work in progreess!"
