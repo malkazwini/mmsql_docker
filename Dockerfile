@@ -10,7 +10,7 @@ ENV DbHost \
 	DbMode \
 	ScriptDebug false 
 
-COPY db_ops.sh /home/db_ops.sh
+COPY db_ops.sh /db_ops.sh
 # apt-get and system utilities
 RUN apt-get update && apt-get install -y \
 	curl apt-transport-https debconf-utils \
@@ -25,11 +25,11 @@ RUN apt-get update && ACCEPT_EULA=Y apt-get install -y msodbcsql mssql-tools
 RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile 
 RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 RUN /bin/bash -c "source ~/.bashrc"
-RUN chmod +x /home/db_ops.sh
+RUN chmod +x /db_ops.sh
 
 
 RUN apt-get -y install locales
 RUN locale-gen en_US.UTF-8
 RUN update-locale LANG=en_US.UTF-8
 
-CMD ["/home/db_ops.sh --host $DbHost --port $DbPort --user $DbUser --password $DbPassword --database $DbName --mode $DbMode --debug $ScriptDebug"]
+CMD ["/db_ops.sh --host $DbHost --port $DbPort --user $DbUser --password $DbPassword --database $DbName --mode $DbMode --debug $ScriptDebug"]
