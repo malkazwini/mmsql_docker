@@ -28,7 +28,7 @@ do
             ;;
         -m|--mode)
             # [dropDb|alterDb]
-            DbMode="$2"
+            mode="$2"
             shift
             ;;
         -d|--debug)
